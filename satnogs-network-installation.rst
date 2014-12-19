@@ -36,7 +36,7 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 
      (satnogs-network)$ ./manage.py initialize
 
-# **Run it!**
+#. **Run it!**
 
   Just run it::
   
