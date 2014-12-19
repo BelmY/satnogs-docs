@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; SatNOGS 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SatNOGS 1 documentation" href="index.html" />
+    <link rel="up" title="satnogs-network" href="satnogs-network.html" />
+    <link rel="prev" title="satnogs-network" href="satnogs-network.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="satnogs-network.html" title="satnogs-network"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SatNOGS 1 documentation</a> &raquo;</li>
+          <li><a href="satnogs-network.html" accesskey="U">satnogs-network</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Requirements: You will need python, python-virtualenvwrapper, pip and git</p>
+<ol class="arabic">
+<li><p class="first"><strong>Build the enviroment</strong></p>
+<p>Clone source code from the <a class="reference external" href="https://github.com/satnogs/satnogs-network">repository</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone https://github.com/satnogs/satnogs-network.git
+</pre></div>
+</div>
+<p>Set up the virtual environment. On first run you should create it and link it to your project path.:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd satnogs-network
+$ mkvirtualenv satnogs-network -a .
+</pre></div>
+</div>
+<p>Activate your python virtual environment:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ workon satnogs-network
+</pre></div>
+</div>
+<p>Install local development requirements:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ (satnogs-network)$ pip install -r requirements/dev.txt
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Database</strong></p>
+<p>Create and setup the database:</p>
+<div class="highlight-python"><div class="highlight"><pre>(satnogs-network)$ ./manage.py migrate
+</pre></div>
+</div>
+<p>Create a superuser:</p>
+<div class="highlight-python"><div class="highlight"><pre>(satnogs-network)$ ./manage.py createsuperuser
+</pre></div>
+</div>
+<p>Push some demo data:</p>
+<div class="highlight-python"><div class="highlight"><pre>(satnogs-network)$ ./manage.py initialize
+</pre></div>
+</div>
+</li>
+</ol>
+<p># <strong>Run it!</strong></p>
+<blockquote>
+<div><p>Just run it:</p>
+<div class="highlight-python"><div class="highlight"><pre>(satnogs-network)$ ./manage.py runserver
+</pre></div>
+</div>
+<p>Your satnogs-network development instance is available in localhost:8000. Go hack!</p>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="satnogs-network.html"
+                        title="previous chapter">satnogs-network</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/satnogs-network-installation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="satnogs-network.html" title="satnogs-network"
+             >previous</a> |</li>
+        <li><a href="index.html">SatNOGS 1 documentation</a> &raquo;</li>
+          <li><a href="satnogs-network.html" >satnogs-network</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, SatNOGS Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
