@@ -14,6 +14,10 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
      $ cd satnogs-network
      $ mkvirtualenv satnogs-network -a .
 
+   Set your enviromental variables::
+
+     $ cp .env-dist .env
+
    Activate your python virtual environment::
 
      $ workon satnogs-network
@@ -21,6 +25,7 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
    Install local development requirements::
 
      $ (satnogs-network)$ pip install -r requirements/dev.txt
+
 
 #. **Database**
 
@@ -39,7 +44,7 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 #. **Run it!**
 
   Just run it::
-  
+
     (satnogs-network)$ ./manage.py runserver
 
   Your satnogs-network development instance is available in localhost:8000. Go hack!
