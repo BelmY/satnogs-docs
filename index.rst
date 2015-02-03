@@ -8,7 +8,7 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
-   satnogs-network
+   network/index
 
 
 Indices and tables
