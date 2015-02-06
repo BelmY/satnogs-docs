@@ -11,7 +11,7 @@ When you want to start contributing, you should :doc:`follow the installation in
 
 #.  (Optional) Set your cloned fork to track upstream changes (changes to the main repository), then fetch and merge changes from the upstream branch::
 
-    $ git remote add --track master upstream git://github.com/satnogs/satnogs-netwok
+    $ git remote add --track master upstream git://github.com/satnogs/satnogs-network
     $ git fetch upstream
     $ git merge upstream/master
 
