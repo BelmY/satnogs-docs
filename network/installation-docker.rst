@@ -3,7 +3,7 @@ Docker Installation
 
 #. **Requirements**
 
-You will need `docker <https://docs.docker.com/installation/#installation>`_ and `fig <http://www.fig.sh/install.html>`_.
+   You will need `docker <https://docs.docker.com/installation/#installation>`_ and `fig <http://www.fig.sh/install.html>`_.
 
 #. **Build the containers**
 
