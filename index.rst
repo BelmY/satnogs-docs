@@ -9,6 +9,7 @@ Contents:
    :maxdepth: 3
 
    network/index
+   client/index
 
 
 Indices and tables
