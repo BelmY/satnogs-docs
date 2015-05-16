@@ -8,8 +8,9 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
-   network/index
    client/index
+   db/index
+   network/index
 
 
 Indices and tables
