@@ -24,11 +24,9 @@ When you want to start contributing, you should :doc:`follow the installation in
 
 #. Code!
 
-#. Lint the code::
+#. Lint the code and fix any errors::
 
     $ flake8 db
-
-   and fix any errors.
 
 #. Commit changes to the code!
 
@@ -91,9 +89,8 @@ Most important things:
 #. Don't use whitespace before or after parentheses, brackets or braces.
 #. Classes should use CamelCase naming.
 #. Functions should use lowercase naming.
-       
+
 
 What to work on
 ---------------
 You can check `opened issues <https://github.com/satnogs/satnogs-db/issues>`_. We regurarly open issues for tracking new features. You pick one and start coding.
-
