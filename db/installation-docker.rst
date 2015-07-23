@@ -28,9 +28,9 @@ Docker Installation
 
     $ fig run web python manage.py loaddata satellites
 
-   Load some transponders fixtures::
+   Load some transmitters fixtures::
 
-    $ fig run web python manage.py loaddata transponders
+    $ fig run web python manage.py loaddata transmitters
 
 #. **Run it!**
 

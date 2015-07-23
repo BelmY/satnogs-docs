@@ -1,30 +1,30 @@
-Transponders
+Transmitters
 ============
 
-The ``transponders`` method of the :doc:`SatNOGS DB API </db/api>` returns all Transponders data.
+The ``transmitters`` method of the :doc:`SatNOGS DB API </db/api>` returns all Transmitters data.
 
 Endpoint
 --------
 
-     ``https://db.satnogs.org/api/transponders/``
+     ``https://db.satnogs.org/api/transmitters/``
 
 Parameters
 ----------
 
     ``mode``
-        *Optional* **string** - Returns only transponders with matching mode
+        *Optional* **string** - Returns only transmitters with matching mode
 
     ``satellite__norad_cat_id``
-        *Optional* **string** - Returns only transponders for the matching satellite
+        *Optional* **string** - Returns only transmitters for the matching satellite
 
 Examples
 --------
 
-Show transponders of a satellite with a specific Norad Cat ID:
+Show transmitters of a satellite with a specific Norad Cat ID:
 
     Request::
 
-        /api/transponders/?format=json&satellite__norad_cat_id=23439
+        /api/transmitters/?format=json&satellite__norad_cat_id=23439
 
     Response::
 
@@ -42,11 +42,11 @@ Show transponders of a satellite with a specific Norad Cat ID:
             "norad_cat_id": 23439
         }
 
-Show transponders of a specific mode:
+Show transmitters of a specific mode:
 
     Request::
 
-        /api/transponders/?format=json&mode=AFSK
+        /api/transmitters/?format=json&mode=AFSK
 
     Response::
 

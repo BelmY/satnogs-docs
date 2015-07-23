@@ -41,9 +41,9 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 
      (satnogs-db)$ ./manage.py loaddata satellites
 
-   Load some transponders fixtures::
+   Load some transmitters fixtures::
 
-     (satnogs-db)$ ./manage.py loaddata transponders
+     (satnogs-db)$ ./manage.py loaddata transmitters
 
 #. **Run it!**
 

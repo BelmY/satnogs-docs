@@ -1,7 +1,7 @@
 Satellites
 ==========
 
-The ``satellites`` method of the :doc:`SatNOGS DB API </db/api>` returns all Satellites currently used for gathering Transponders data.
+The ``satellites`` method of the :doc:`SatNOGS DB API </db/api>` returns all Satellites currently used for gathering Transmitters data.
 
 Endpoint
 --------

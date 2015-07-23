@@ -1,7 +1,7 @@
 API
 ===
 
-SatNOGS-DB API is a REST API that provides detailed information about Satellites and Transponders. This document explains how to use the API to retrieve data for your application.
+SatNOGS-DB API is a REST API that provides detailed information about Satellites and Transmitters. This document explains how to use the API to retrieve data for your application.
 
 Using API Data
 --------------
@@ -15,4 +15,4 @@ API Methods
    :maxdepth: 1
 
    api-satellites
-   api-transponders
+   api-transmitters
