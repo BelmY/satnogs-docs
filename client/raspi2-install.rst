@@ -19,6 +19,7 @@ Install OS dependencies
 -----------------------
 
 Let's get some required packages out of the way first::
+
    sudo apt-get update
    sudo apt-get upgrade
    sudo apt-get install -y python-pip python-dev supervisor cmake libusb-1.0-0-dev libhamlib-utils
@@ -27,10 +28,12 @@ Let's get some required packages out of the way first::
 OS optional packages
 --------------------
 (these may help in testing but are not required for SatNOGS)
+
 * gpredict - for testing the rotor functionality of the tracker
 * tightvncserver - running gpredict through VNC instead of ssh x-forwarding takes less resources, allowing you to stream rtl_tcp at the same time
 
-::
+These are optional, install them with::
+
    sudo apt-get install -y gpredict tightvncserver
 
 ------------
@@ -79,7 +82,8 @@ supervisord & configuration
 
 I like to manage SatNOGS with supervisord. There are plenty of other ways to do it and your mileage may vary.  Before we get to the SatNOGS client we have one a dependency that has not yet been discussed: rotctld for providing rotor control interface to the SatNOGS Arduino board.  This should have been installed with libhamlib-utils above.
 
-As with SatNOGS, I run rotctld through supervisord.  Open your favorite editor and drop this into /etc/supervisord/conf.d/rotctld.conf::
+As with SatNOGS, I run rotctld through supervisord.  Open your favorite editor and drop this into
+/etc/supervisord/conf.d/rotctld.conf::
 
    [program:rotctld]
    command=/usr/bin/rotctld -m 202 -r /dev/ttyACM0 -s 19200 -T 127.0.0.1
@@ -88,7 +92,8 @@ As with SatNOGS, I run rotctld through supervisord.  Open your favorite editor a
    user=pi
    priority=1
 
-Now, for the SatNOGS supervisord config file.  This is also where you will configure your client as today the settings are all passed in environment variables.  Drop this into /etc/supervisord/conf.d/satnogs.conf::
+Now, for the SatNOGS supervisord config file.  This is also where you will configure your client as today the settings are all passed in environment variables.  Drop this into 
+/etc/supervisord/conf.d/satnogs.conf::
 
    [program:satnogs]
    command=/usr/local/bin/satnogs-poller
