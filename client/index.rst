@@ -8,3 +8,4 @@ Contents:
 
    architecture
    satnogsclient
+   installation
