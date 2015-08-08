@@ -12,7 +12,7 @@ This tutorial assumes the following:
 5. You will be installing and running as the default `pi` user.
 6. You are using an rtl-sdr dongle per the reference platform.
 7. You have an account on either network.satnogs.org or network-dev.satnogs.org and have 1) your ground station ID number, 2) your API key
-8. Written for SatNOGS client v0.2.3.
+8. Written for SatNOGS client v0.2.4.
 
 -----------------------
 Install OS dependencies
@@ -101,9 +101,9 @@ Now, for the SatNOGS supervisord config file.  This is also where you will confi
    autostart=true
    autorestart=true
    user=pi
-   environment=SATNOGS_SQLITE_URL="sqlite:////tmp/jobs.sqlite",SATNOGS_API_URL="https://network.satnogs.org/api/",SATNOGS_API_TOKEN="foo",SATNOGS_VERIFY_SSL="TRUE",SATNOGS_STATION_ID="foo",SATNOGS_STATION_LAT="40.000",SATNOGS_STATION_LON="-80.000",SATNOGS_STATION_ELEV="100"
+   environment=SATNOGS_SQLITE_URL="sqlite:////tmp/jobs.sqlite",SATNOGS_API_URL="https://network.satnogs.org/api/",SATNOGS_API_TOKEN="foo",SATNOGS_VERIFY_SSL="TRUE",SATNOGS_STATION_ID="foo",SATNOGS_STATION_LAT="40.000",SATNOGS_STATION_LON="-80.000",SATNOGS_STATION_ELEV="100",SATNOGS_PPM_ERROR="foo"
 
-Obviously there are fields above that will need configured appropriately, your lat/lon/elev, API token, and station ID.  Log in to the SatNOGS Network console and click on your user icon in the upper-right, then "My Profile". If you have not already added your ground station to the web site please do so now with the "Add Ground Station" button.  Once that is done your ground station ID will be shown.  In this screen as well you can click the "API Key" button for the token needed in the configuration above.
+Obviously there are fields above that will need configured appropriately, your lat/lon/elev, API token, station ID, and PPM.  Log in to the SatNOGS Network console and click on your user icon in the upper-right, then "My Profile". If you have not already added your ground station to the web site please do so now with the "Add Ground Station" button.  Once that is done your ground station ID will be shown.  In this screen as well you can click the "API Key" button for the token needed in the configuration above.
 
 With these files in place, run **sudo supervisorctl reload** and the new configuration files will be picked up and the apps started. You can follow the logs in /var/log/supervisord/.
 
@@ -111,55 +111,3 @@ Other configuration variables can be found by looking at the settings file at ht
 
 **At this point your client should be fully functional!  It will check in with the network URL at a 5 minute interval.  You should check your ground station page on the website, the station ID will be in a red box until the station checks in, at which time it will turn green.**
 
------------
-Finding PPM
------------
-
-*In the 0.2.3 release of satnogsclient, PPM offset is not configurable outside of a change in the code.  As soon as this changes I will update this document to reflect where/how to add the PPM.  In the meantime, here is a method for finding the PPM.*
-
-The rtl-sdr dongles are not perfectly tuned and there is always a bit of shift in the crystal used.  To calibrate this we need to find PPM. While rtl_test comes with PPM detection now, it is not very accurate on the raspberry pi due to the lack of a real time clock.  To find our PPM from the command line we will use Kalibrate which finds the PPM against known GSM frequencies.::
-
-   sudo apt-get install autoconf libtool libfftw3-dev
-   cd ~/git
-   git clone https://github.com/steve-m/kalibrate-rtl
-   cd kalibrate-rtl
-   ./bootstrap
-   ./configure
-   make
-   sudo make install
-
-Now we run kal to first scan for channels nearby, then picking a channel or two we run kal again to calculate the PPM offset.  In the USA scan the GSM850 range, in Europe GSM900::
-
-   kal -s GSM850
-   
-   Found 1 device(s):
-     0:  Generic RTL2832U OEM
-   
-   Using device 0: Generic RTL2832U OEM
-   Found Elonics E4000 tuner
-   Exact sample rate is: 270833.002142 Hz
-   kal: Scanning for GSM-850 base stations.
-   GSM-850:
-      	chan: 145 (872.6MHz + 39.349kHz)	power: 226138.00
-      	chan: 151 (873.8MHz + 39.379kHz)	power: 361536.36
-      	chan: 157 (875.0MHz + 5.441kHz)	power: 385795.74
-
-Now pick a channel and calibrate against it (note this process may run for a long time)::
-
-   kal -c 151
-   
-   Found 1 device(s):
-     0:  Generic RTL2832U OEM
-   
-     Using device 0: Generic RTL2832U OEM
-     Found Elonics E4000 tuner
-     Exact sample rate is: 270833.002142 Hz
-     kal: Calculating clock frequency offset.
-     Using GSM-850 channel 151 (873.8MHz)
-     average       [min, max]  (range, stddev)
-     + 39.943kHz       [39832, 39987]  (155, 33.017464)
-     overruns: 0
-     not found: 781
-     average absolute error: -45.711 ppm
-
-In this case, we use -45.711 for our PPM error setting.
