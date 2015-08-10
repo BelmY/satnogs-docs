@@ -5,13 +5,21 @@ Installing SatNOGS on a Raspberry Pi 2
 *The reference platform for SatNOGS is the BeagleBone Black. Since then, the Raspberry Pi 2 has been released with similar specs. The author's main reason behind using the RP2 instead of the BBB is the added USB ports onboard. In my setup I have need for 3 ports when the BBB provides 1. The USB hub I used initially in my tracker caused many issues handling the load of the rtl_sdr. While this tutorial is written for the RP2 running raspbian it could be used to guide similar setups with a debian based OS.*
 
 This tutorial assumes the following:
+
 1. You have a raspberry pi 2b already installed. This tutorial was written with the Raspbian 2015-05-05 image.
+
 2. You have working network connectivity for your SatNOGS tracker (some adapters may take extra work, get those hurdles out of the way first)
+
 3. You are using a Class 10 SDHC card. Lower classes may work but my testing has been with Class 10. The performance is worth the extra cost.
+
 4. You are not overclocking the board. Being that there is no climate control within the SatNOGS tracker, overclocking will run a high risk of overheating on warm days.
+
 5. You will be installing and running as the default `pi` user.
+
 6. You are using an rtl-sdr dongle per the reference platform.
+
 7. You have an account on either network.satnogs.org or network-dev.satnogs.org and have 1) your ground station ID number, 2) your API key
+
 8. Written for SatNOGS client v0.2.4, found at https://pypi.python.org/pypi/satnogsclient/0.2.4 or https://github.com/satnogs/satnogs-client.
 
 -----------------------
