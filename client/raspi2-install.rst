@@ -73,7 +73,7 @@ Install satnogs-client
 
 Building from source is outside of the scope of this document, we will use the packaged install for now::
 
-   sudo pip install satnogsclient==0.2.3
+   sudo pip install satnogsclient==0.2.4
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
