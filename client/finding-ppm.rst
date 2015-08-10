@@ -2,12 +2,11 @@
 Finding PPM
 ===========
 
-*This document assumes at least satnogs-client version 0.2.4*
+*This document assumes at least satnogs-client version 0.2.4, found at https://pypi.python.org/pypi/satnogsclient/0.2.4 or https://github.com/satnogs/satnogs-client*
 
-The rtl-sdr dongles are not perfectly tuned and there is always a bit of shift in the crystal used.  To calibrate this we need to find PPM. While rtl_test comes with PPM detection now, it is not very accurate on the raspberry pi due to the lack of a real time clock.  To find our PPM from the command line we will use Kalibrate which finds the PPM against known GSM frequencies.::
+The rtl-sdr dongles are not perfectly tuned and there is always a bit of shift in the crystal used. To calibrate this we need to find PPM. While rtl_test comes with PPM detection now, it is not very accurate on the raspberry pi due to the lack of a real time clock. To find our PPM from the command line we will use Kalibrate which finds the PPM against known GSM frequencies.::
 
    sudo apt-get install autoconf libtool libfftw3-dev
-   cd ~/git
    git clone https://github.com/steve-m/kalibrate-rtl
    cd kalibrate-rtl
    ./bootstrap
@@ -15,7 +14,7 @@ The rtl-sdr dongles are not perfectly tuned and there is always a bit of shift i
    make
    sudo make install
 
-Now we run kal to first scan for channels nearby, then picking a channel or two we run kal again to calculate the PPM offset.  In the USA scan the GSM850 range, in Europe GSM900::
+Now we run kal to first scan for channels nearby, then picking a channel or two we run kal again to calculate the PPM offset. In the USA scan the GSM850 range, in Europe GSM900::
 
    kal -s GSM850
    
@@ -49,4 +48,4 @@ Now pick a channel and calibrate against it (note this process may run for a lon
      not found: 781
      average absolute error: -45.711 ppm
 
-In this case, we use -45.711 for our PPM error setting, SATNOGS_PPM_ERROR
+In this case, we use -45.711 for our PPM error setting, SATNOGS_PPM_ERROR. Refer to [settings.py](https://github.com/satnogs/satnogs-client/blob/master/satnogsclient/settings.py).
