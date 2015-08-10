@@ -19,6 +19,7 @@ More detailed and system-specific steps can be found below:
 .. toctree::
    :maxdepth: 2
 
+   bbb-install
    raspi2-install
    finding-ppm
 
