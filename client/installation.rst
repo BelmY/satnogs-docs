@@ -20,4 +20,5 @@ More detailed and system-specific steps can be found below:
    :maxdepth: 2
 
    raspi2-install
+   finding-ppm
 
