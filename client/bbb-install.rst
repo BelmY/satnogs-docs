@@ -1,20 +1,14 @@
-======================================
-Installing SatNOGS on a Raspberry Pi 2
-======================================
-
-*The reference platform for SatNOGS is the BeagleBone Black. Since then, the Raspberry Pi 2 has been released with similar specs. The author's main reason behind using the RP2 instead of the BBB is the added USB ports onboard. In my setup I have need for 3 ports when the BBB provides 1. The USB hub I used initially in my tracker caused many issues handling the load of the rtl_sdr. While this tutorial is written for the RP2 running raspbian it could be used to guide similar setups with a debian based OS.*
+========================================
+Installing SatNOGS on a BeagleBone Black
+========================================
 
 This tutorial assumes the following:
 
-1. You have a raspberry pi 2b already installed. This tutorial was written with the Raspbian 2015-05-05 image.
+1. You have a BeagleBone Black already installed. This tutorial was written using the Debian 2015-03-01 image, found [here](http://beagleboard.org/latest-images).
 
 2. You have working network connectivity for your SatNOGS tracker (some adapters may take extra work, get those hurdles out of the way first)
 
-3. You are using a Class 10 SDHC card. Lower classes may work but my testing has been with Class 10. The performance is worth the extra cost.
-
-4. You are not overclocking the board. Being that there is no climate control within the SatNOGS tracker, overclocking will run a high risk of overheating on warm days.
-
-5. You will be installing and running as the default `pi` user.
+5. You will be installing and running as the default `debian` user.
 
 6. You are using an rtl-sdr dongle per the reference platform.
 
@@ -30,7 +24,7 @@ Let's get some required packages out of the way first::
 
    sudo apt-get update
    sudo apt-get upgrade
-   sudo apt-get install -y python-pip python-dev supervisor cmake libusb-1.0-0-dev libhamlib-utils vorbis-tools git
+   sudo apt-get install -y python-pip python-dev supervisor cmake libusb-1.0-0-dev libhamlib-utils vorbis-tools
 
 --------------------
 OS optional packages
@@ -42,7 +36,7 @@ OS optional packages
 
 These are optional, install them with::
 
-   sudo apt-get install -y gpredict tightvncserver
+   sudo apt-get install -y gpredict
 
 ------------
 Installation
@@ -97,7 +91,7 @@ As with SatNOGS, I run rotctld through supervisord. Open your favorite editor an
    command=/usr/bin/rotctld -m 202 -r /dev/ttyACM0 -s 19200 -T 127.0.0.1
    autostart=true
    autorestart=true
-   user=pi
+   user=debian
    priority=1
 
 Now, for the SatNOGS supervisord config file. This is also where you will configure your client as today the settings are all passed in environment variables. Drop this into 
@@ -105,13 +99,13 @@ Now, for the SatNOGS supervisord config file. This is also where you will config
 
    [program:satnogs]
    command=/usr/local/bin/satnogs-poller
-   directory=/home/pi/
+   directory=/home/debian/
    autostart=true
    autorestart=true
-   user=pi
+   user=debian
    environment=SATNOGS_SQLITE_URL="sqlite:////tmp/jobs.sqlite",SATNOGS_API_URL="https://network.satnogs.org/api/",SATNOGS_API_TOKEN="<TOKEN>",SATNOGS_VERIFY_SSL="TRUE",SATNOGS_STATION_ID="<ID>",SATNOGS_STATION_LAT="<LATITUDE>",SATNOGS_STATION_LON="<LONGITUDE>",SATNOGS_STATION_ELEV="<ELEVATION>",SATNOGS_PPM_ERROR="<PPM>"
 
-Obviously there are fields above that will need configured appropriately, your latitude/longitude/elevation (example: 43.210 -86.123, elevation is in meters), API token, station ID, and PPM. Log in to the SatNOGS Network console and click on your user icon in the upper-right, then "My Profile". If you have not already added your ground station to the web site please do so now with the "Add Ground Station" button. Once that is done your ground station ID will be shown. In this screen as well you can click the "API Key" button for the token needed in the configuration above. All settings that can be changed in the environment can be found in the [settings.py file](https://github.com/satnogs/satnogs-client/blob/master/satnogsclient/settings.py)
+Obviously there are fields above that will need to be configured appropriately, your latitude/longitude/elevation (example: 43.210 -86.123, elevation is in meters), API token, station ID, and PPM. Log in to the SatNOGS Network console and click on your user icon in the upper-right, then "My Profile". If you have not already added your ground station to the web site please do so now with the "Add Ground Station" button. Once that is done your ground station ID will be shown. In this screen as well you can click the "API Key" button for the token needed in the configuration above. All settings that can be changed in the environment can be found in the [settings.py file](https://github.com/satnogs/satnogs-client/blob/master/satnogsclient/settings.py)
 
 With these files in place, run **sudo supervisorctl reload** and the new configuration files will be picked up and the apps started. You can follow the logs in /var/log/supervisord/.
 
@@ -119,3 +113,12 @@ Other configuration variables can be found by looking at the settings file at ht
 
 **At this point your client should be fully functional! It will check in with the network URL at a 5 minute interval. You should check your ground station page on the website, the station ID will be in a red box until the station checks in, at which time it will turn green.**
 
+-----------------------
+BeagleBone Black issues
+-----------------------
+
+^^^
+USB
+^^^
+
+Given that the BeagleBone Black has only one USB interface there will need to be a hub to support the rotor controller (arduino) and the SDR dongle (your configuration may also include a USB wifi device as well). Ensure that your hub is externally powered, and that you can see the devices you need by running `lsusb`. In addition, to see if your hub is going to cause issues run `rtl_test` and watch for dropped packets. If this count is too high you may need to replace it with a different hub.
