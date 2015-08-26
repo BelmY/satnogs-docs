@@ -29,21 +29,9 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 
 #. **Database**
 
-   Create and setup the database::
+   Create, setup and populate the database with demo data::
 
-     (satnogs-db)$ ./manage.py migrate
-
-   Create a superuser::
-
-     (satnogs-db)$ ./manage.py createsuperuser
-
-   Load some satellites fixtures::
-
-     (satnogs-db)$ ./manage.py loaddata satellites
-
-   Load some transmitters fixtures::
-
-     (satnogs-db)$ ./manage.py loaddata transmitters
+     (satnogs-db)$ ./manage.py initialize
 
 #. **Run it!**
 

@@ -29,17 +29,12 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 
 #. **Database**
 
-   Create and setup the database::
-
-     (satnogs-network)$ ./manage.py migrate
-
-   Create a superuser::
-
-     (satnogs-network)$ ./manage.py createsuperuser
-
-   Push some demo data::
+   Create, setup and populate the database with demo data::
 
      (satnogs-network)$ ./manage.py initialize
+
+     Note that the above command requires internet connection, since it fetches
+     Satellite and Transmitter data from `SatNOGS-DB <https://db.satnogs.org/>`_
 
 #. **Run it!**
 

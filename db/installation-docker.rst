@@ -3,7 +3,7 @@ Docker Installation
 
 #. **Requirements**
 
-   You will need `docker <https://docs.docker.com/installation/#installation>`_ and `fig <http://www.fig.sh/install.html>`_.
+   You will need `docker <https://docs.docker.com/installation/#installation>`_ and `docker-compose <https://docs.docker.com/compose/install/>`_.
 
 #. **Build the containers**
 
@@ -18,24 +18,20 @@ Docker Installation
 
    Start database containers::
 
-     $ fig up -d db
+     $ docker-compose up -d db
 
    Build satnogs-db container::
 
-     $ fig build web
+     $ docker-compose build web
 
-   Load some satellites fixtures::
+   Run the initialize script to populate the database with scheme and demo data::
 
-    $ fig run web python manage.py loaddata satellites
-
-   Load some transmitters fixtures::
-
-    $ fig run web python manage.py loaddata transmitters
+    $ docker-compose run web python manage.py initialize
 
 #. **Run it!**
 
    Run satnogs-db::
 
-     $ fig up
+     $ docker-compose up
 
    Your satnogs-db development instance is available in localhost:8000. Go hack!
