@@ -60,11 +60,10 @@ Next, clone and build the rtl-sdr tools::
    git clone https://github.com/satnogs/rtl-sdr.git
    mkdir rtl-sdr/build
    cd rtl-sdr/build
-   cmake ../
+   cmake ../ -DINSTALL_UDEV_RULES=ON
    make
    sudo make install
    sudo ldconfig
-   sudo cp ../rtl-sdr.rules /etc/udev/rules.d
    sudo udevadm trigger
 
 At this point you should be able to run rtl_test with your dongle plugged in and it will be detected. Press CTRL-C to exit the test.
