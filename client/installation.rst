@@ -21,6 +21,6 @@ More detailed and system-specific steps can be found below:
    :maxdepth: 2
 
    bbb-install
-   raspi2-install
+   raspi-install
    finding-ppm
 
