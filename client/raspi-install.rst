@@ -1,16 +1,16 @@
-======================================
-Installing SatNOGS on a Raspberry Pi 2
-======================================
+===========================================
+Installing SatNOGS on a Raspberry Pi 2 or 3
+===========================================
 
-*The reference platform for SatNOGS is the BeagleBone Black. Since then, the Raspberry Pi 2 has been released with similar specs. The author's main reason behind using the RP2 instead of the BBB is the added USB ports onboard. In my setup I have need for 3 ports when the BBB provides 1. The USB hub I used initially in my tracker caused many issues handling the load of the rtl_sdr. While this tutorial is written for the RP2 running raspbian it could be used to guide similar setups with a debian based OS.*
+*The reference platform for SatNOGS is the BeagleBone Black. Since then, the Raspberry Pi 2 and 3 have been released with similar specs. The author's main reason behind using the RP2/3 instead of the BBB is the added USB ports onboard. In my setup I have need for 3 ports when the BBB provides 1. The USB hub I used initially in my tracker caused many issues handling the load of the rtl_sdr. While this tutorial is written for the Raspberry Pi running raspbian it could be used to guide similar setups with a debian based OS.*
 
 This tutorial assumes the following:
 
-1. You have a raspberry pi 2b already installed. This tutorial was written with the Raspbian 2015-05-05 image.
+1. You have a raspberry pi 2b or 3 already installed. This tutorial was originally written with the Raspbian 2015-05-05 image, but also tested against Raspbian 2016-02-26 (the latter is recommended, especially if you are using a Raspberry Pi v3).
 
 2. You have working network connectivity for your SatNOGS tracker (some adapters may take extra work, get those hurdles out of the way first)
 
-3. You are using a Class 10 SDHC card. Lower classes may work but my testing has been with Class 10. The performance is worth the extra cost.
+3. You are using a Class 10 SDHC card. Lower classes may work but my testing has been with Class 10. The performance is worth the extra cost. Also recommended is that you ensure the filesystem is expanded to your full SD card (run `sudo raspi-config`)
 
 4. You are not overclocking the board. Being that there is no climate control within the SatNOGS tracker, overclocking will run a high risk of overheating on warm days.
 
@@ -28,6 +28,7 @@ Install OS dependencies
 
 Let's get some required packages out of the way first::
 
+   sudo rpi-update
    sudo apt-get update
    sudo apt-get upgrade
    sudo apt-get install -y python-pip python-dev supervisor cmake libusb-1.0-0-dev libhamlib-utils vorbis-tools git
