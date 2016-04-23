@@ -2,7 +2,7 @@
 Finding PPM
 ===========
 
-*This document assumes at least satnogs-client version 0.2.4, found at https://pypi.python.org/pypi/satnogsclient/0.2.4 or https://github.com/satnogs/satnogs-client*
+*This document assumes at least satnogs-client version 0.2.5, found at https://pypi.python.org/pypi/satnogsclient/0.2.5 or https://github.com/satnogs/satnogs-client*
 
 The rtl-sdr dongles are not perfectly tuned and there is always a bit of shift in the crystal used. To calibrate this we need to find PPM. While rtl_test comes with PPM detection now, it is not very accurate on the raspberry pi due to the lack of a real time clock. To find our PPM from the command line we will use Kalibrate which finds the PPM against known GSM frequencies.::
 

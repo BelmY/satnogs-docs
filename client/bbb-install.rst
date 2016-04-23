@@ -14,7 +14,7 @@ This tutorial assumes the following:
 
 7. You have an account on either network.satnogs.org or network-dev.satnogs.org and have 1) your ground station ID number, 2) your API key
 
-8. Written for SatNOGS client v0.2.4, found at https://pypi.python.org/pypi/satnogsclient/0.2.4 or https://github.com/satnogs/satnogs-client.
+8. Written for SatNOGS client v0.2.5, found at https://pypi.python.org/pypi/satnogsclient/0.2.5 or https://github.com/satnogs/satnogs-client.
 
 -----------------------
 Install OS dependencies
@@ -74,7 +74,7 @@ Install satnogs-client
 
 Building from source is outside of the scope of this document, we will use the packaged install for now::
 
-   sudo pip install satnogsclient==0.2.4
+   sudo pip install satnogsclient==0.2.5
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
