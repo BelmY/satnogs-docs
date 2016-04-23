@@ -22,5 +22,6 @@ More detailed and system-specific steps can be found below:
 
    bbb-install
    raspi-install
+   hardware-install
    finding-ppm
 
