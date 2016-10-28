@@ -3,6 +3,7 @@ VirtualEnv Installation
 
 Requirements: You will need python, python-virtualenvwrapper, pip and git
 
+
 #. **Build the environment**
 
    Clone source code from the `repository <https://github.com/satnogs/satnogs-network>`_::
@@ -33,8 +34,9 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
 
      (satnogs-network)$ ./manage.py initialize
 
-     Note that the above command requires internet connection, since it fetches
-     Satellite and Transmitter data from `SatNOGS-DB <https://db.satnogs.org/>`_
+   Note that the above command requires internet connection, since it fetches
+   Satellite and Transmitter data from `SatNOGS-DB <https://db.satnogs.org/>`_
+
 
 #. **Run it!**
 

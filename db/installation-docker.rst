@@ -5,6 +5,7 @@ Docker Installation
 
    You will need `docker <https://docs.docker.com/installation/#installation>`_ and `docker-compose <https://docs.docker.com/compose/install/>`_.
 
+
 #. **Build the containers**
 
    Clone source code from the `repository <https://github.com/satnogs/satnogs-db>`_::
@@ -27,6 +28,7 @@ Docker Installation
    Run the initialize script to populate the database with scheme and demo data::
 
     $ docker-compose run web python manage.py initialize
+
 
 #. **Run it!**
 

@@ -3,6 +3,7 @@ VirtualEnv Installation
 
 Requirements: You will need python, python-virtualenvwrapper, pip and git
 
+
 #. **Build the environment**
 
    Clone source code from the `repository <https://github.com/satnogs/satnogs-db>`_::
@@ -32,6 +33,7 @@ Requirements: You will need python, python-virtualenvwrapper, pip and git
    Create, setup and populate the database with demo data::
 
      (satnogs-db)$ ./manage.py initialize
+
 
 #. **Run it!**
 
