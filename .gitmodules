@@ -1,0 +1,4 @@
+[submodule "satnogs-client"]
+	path = satnogs-client
+	url = https://github.com/satnogs/satnogs-client.git
+	branch = master

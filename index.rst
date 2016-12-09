@@ -8,7 +8,7 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
-   client/index
+   satnogs-client/doc/index
    db/index
    network/index
 
