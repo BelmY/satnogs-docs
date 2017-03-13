@@ -18,8 +18,8 @@ import os
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('satnogs-client'))
+sys.path.insert(0, os.path.abspath('satnogs-db'))
 
 # -- General configuration ------------------------------------------------
 
@@ -45,7 +45,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SatNOGS'
-copyright = u'2014-2015, SatNOGS Team'
+copyright = u'2014-2017, Libre Space Foundation'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -198,7 +198,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'SatNOGS.tex', u'SatNOGS Documentation',
-   u'SatNOGS Team', 'manual'),
+   u'SatNOGS', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -228,7 +228,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'satnogs', u'SatNOGS Documentation',
-     [u'SatNOGS Team'], 1)
+     [u'SatNOGS'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -242,7 +242,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'SatNOGS', u'SatNOGS Documentation',
-   u'SatNOGS Team', 'SatNOGS', 'One line description of project.',
+   u'SatNOGS', 'SatNOGS', 'DIY Satellite Ground Station and Network.',
    'Miscellaneous'),
 ]
 

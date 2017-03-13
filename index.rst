@@ -9,7 +9,7 @@ Contents:
    :maxdepth: 3
 
    satnogs-client/doc/index
-   db/index
+   satnogs-db/docs/index
    network/index
 
 
@@ -19,4 +19,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

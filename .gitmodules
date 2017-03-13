@@ -1,3 +1,7 @@
+[submodule "satnogs-db"]
+	path = satnogs-db
+	url = https://github.com/satnogs/satnogs-db.git
+	branch = dev
 [submodule "satnogs-client"]
 	path = satnogs-client
 	url = https://github.com/satnogs/satnogs-client.git
