@@ -6,3 +6,7 @@
 	path = satnogs-client
 	url = https://github.com/satnogs/satnogs-client.git
 	branch = 0
+[submodule "satnogs-network"]
+	path = satnogs-network
+	url = https://github.com/satnogs/satnogs-network.git
+	branch = dev

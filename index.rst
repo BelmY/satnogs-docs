@@ -9,8 +9,8 @@ Contents:
    :maxdepth: 3
 
    satnogs-client/doc/index
+   satnogs-network/docs/index
    satnogs-db/docs/index
-   network/index
 
 
 Indices and tables
