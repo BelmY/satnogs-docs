@@ -1,12 +1,12 @@
 [submodule "satnogs-db"]
 	path = satnogs-db
-	url = https://github.com/satnogs/satnogs-db.git
+	url = https://gitlab.com/librespacefoundation/satnogs/satnogs-db.git
 	branch = dev
 [submodule "satnogs-client"]
 	path = satnogs-client
-	url = https://github.com/satnogs/satnogs-client.git
+	url = https://gitlab.com/librespacefoundation/satnogs/satnogs-client.git
 	branch = 0
 [submodule "satnogs-network"]
 	path = satnogs-network
-	url = https://github.com/satnogs/satnogs-network.git
+	url = https://gitlab.com/librespacefoundation/satnogs/satnogs-network.git
 	branch = dev
