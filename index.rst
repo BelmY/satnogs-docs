@@ -1,7 +1,9 @@
 Welcome to SatNOGS's documentation!
 ===================================
 
-This is the documentation for all parts of the `SatNOGS project <http://satnogs.org>`_.
+This is the development documentation for the `SatNOGS project <https://satnogs.org>`_.
+
+If you are looking for documentation on how to use SatNOGS or build a ground station, please visit `our wiki <https://wiki.satnogs.org>`_.
 
 Contents:
 
