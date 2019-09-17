@@ -1,0 +1,28 @@
+variables:
+  GITLAB_CI_IMAGE_ALPINE: 'alpine:3.9'
+  GITLAB_CI_IMAGE_PYTHON: 'python:3'
+stages:
+  - build
+  - deploy
+docs:
+  stage: build
+  image: ${GITLAB_CI_IMAGE_PYTHON}
+  before_script:
+    - pip install sphinx_rtd_theme
+  script:
+    - make html SPHINXOPTS="-W"
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+      - _build/html
+pages:
+  stage: deploy
+  image: ${GITLAB_CI_IMAGE_ALPINE}
+  script:
+    - mv docs/_build/html/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - stable
