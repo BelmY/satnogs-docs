@@ -21,7 +21,7 @@ pages:
   stage: deploy
   image: ${GITLAB_CI_IMAGE_ALPINE}
   script:
-    - mv doc/_build/html/ public/
+    - mv _build/html/ public/
   artifacts:
     paths:
       - public
