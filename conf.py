@@ -20,7 +20,7 @@ import time
 # -- Project information -----------------------------------------------------
 
 project = u'SatNOGS'
-copyright = u'2014-{}, SatNOGS'.format(time.strftime('%Y'))
+copyright = u'2014-{}, Libre Space Foundation'.format(time.strftime('%Y'))
 author = u'SatNOGS'
 
 # The short X.Y version
