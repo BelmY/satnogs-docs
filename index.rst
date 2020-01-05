@@ -9,6 +9,7 @@ If you are looking for documentation on how to use SatNOGS or build a ground sta
    :maxdepth: 3
    :caption: Contents:
 
+   SatNOGS Config <https://docs.satnogs.org/projects/satnogs-config/en/latest>
    SatNOGS Client <https://docs.satnogs.org/projects/satnogs-client/en/stable>
    SatNOGS Network <https://docs.satnogs.org/projects/satnogs-network/en/stable>
    SatNOGS DB <https://docs.satnogs.org/projects/satnogs-db/en/stable>
