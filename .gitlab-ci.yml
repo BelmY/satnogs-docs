@@ -1,6 +1,6 @@
 variables:
   GITLAB_CI_IMAGE_ALPINE: 'alpine:3.9'
-  GITLAB_CI_IMAGE_PYTHON: 'python:3'
+  GITLAB_CI_IMAGE_PYTHON: 'python:3.8'
   GITLAB_CI_PYPI_SPHINX_RTD_THEME: 'sphinx_rtd_theme~=0.4.0'
 stages:
   - build
